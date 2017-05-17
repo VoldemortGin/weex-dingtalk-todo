@@ -1,2 +1,3 @@
 # weex-dingtalk-todo
-dingtalk To Do List Project
+
+dingtalk To Do List Project, ignore todo-server.
