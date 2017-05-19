@@ -5,9 +5,8 @@
   </div>
 </template>
 <script>
+  import { setRight,toast } from '../../lib/util.js';
 
-  const modal = weex.requireModule('modal');
-  const globalEvent = weex.requireModule('globalEvent');
   export default {
     name: 'home',
     data (){
@@ -15,12 +14,17 @@
         link: 'Going DingTalk To do Application'
       }
     },
+    created (){
+      setRight({
+        show: false
+      });
+    },
     mounted (){
 
     },
     methods: {
       getClick: function(){
-        this.$router.push('todoapp');
+        this.$router.push('list');
       }
     }
   }

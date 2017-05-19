@@ -19,7 +19,7 @@
     "vue": "^2.1.10",
     "vue-router": "^2.5.3",
     "weex-dingtalk": "^0.1.1",
-    "weex-dingtalk-journey": "0.0.6",
+    "weex-dingtalk-journey": "^0.1.0",
     "weex-html5": "^0.4.1",
     "weex-vue-render": "^0.2.0"
   },
