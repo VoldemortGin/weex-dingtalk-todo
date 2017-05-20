@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
-    <text class="title">Hello icepy</text>
-    <text class="subtitle" v-on:click="getClick">{{ link }}</text>
+    <text class="title" v-on:click="getClick">{{ link }}</text>
+    <text class="subtitle">Hello icepy,i love your playground !!!</text>
   </div>
 </template>
 <script>
@@ -11,7 +11,7 @@
     name: 'home',
     data (){
       return {
-        link: 'Going DingTalk To do Application'
+        link: 'Going DingTalk Todo List Application'
       }
     },
     created (){
