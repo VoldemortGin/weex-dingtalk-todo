@@ -12,9 +12,8 @@ const helper = require('./middleware/helper');
 const app = koa();
 
 global.PORT = 3000;
-global.TokenCache = '';
 global.TicketCacheMap = [];
-
+global.TokenCache = {};
 app.env = process.env.NODE_ENV || 'development';
 if (app.env === 'development') {
     app.use(koaLogger());

@@ -13,15 +13,13 @@ const OAPI_HOST = env.OAPI_HOST[env.scheme];
 
 function *get(){
     this.set('Access-Control-Allow-Origin','*');
-    if (!TokenCache){
-        const accessTokenResponse = yield getAccessToken();
-        if (accessTokenResponse.errcode !== 0){
-            this.body = {
-                errcode: 101,
-                errmsg: accessTokenResponse.errmsg
-            };
-            return;
-        }
+    const accessTokenResponse = yield getAccessToken();
+    if (accessTokenResponse.errcode !== 0){
+        this.body = {
+            errcode: 101,
+            errmsg: accessTokenResponse.errmsg
+        };
+        return;
     }
     const userid = querystring.parse(url.parse(this.url).query).userid;
     logger.log('warn','userid：',userid);
@@ -35,7 +33,7 @@ function *get(){
     const getRequest = {
         url: OAPI_HOST + '/user/get',
         params: {
-            access_token: TokenCache,
+            access_token: accessTokenResponse.access_token,
             userid: userid
         }
     };

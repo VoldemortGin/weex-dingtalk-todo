@@ -22,21 +22,41 @@ function *getAccessToken(){
             corpsecret: CorpSecret
         }
     };
-    return axios(accessTokenRequest).then(function(response){
-        const data = response.data;
-        if (data.errcode === 0){
-            TokenCache = data.access_token;
-            logger.info('token：' + TokenCache);
-        }
-        return data;
-    }).catch(function (err) {
-        logger.log('error','get access token request error');
+    const cacheTime = 7000 * 1000; //缓存时间
+    const currentTime = new Date().getTime(); //获取当前时间
+    const futureTime = currentTime + cacheTime; //未来过期时间
+    const sendTokenRequest = function(){
+      return axios(accessTokenRequest).then(function(response){
+          const data = response.data;
+          if (data.errcode === 0){
+              TokenCache = {
+                'access_token': data.access_token,
+                timestamp: futureTime
+              }
+              logger.info('token：' + TokenCache);
+          }
+          return data;
+      }).catch(function (err) {
+          logger.log('error','get access token request error');
+          return {
+              errcode: 500,
+              errmsg: 'get access token request bad',
+              error: err
+          }
+      });
+    }
+    if (TokenCache.access_token){
+      if((TokenCache.timestamp - currentTime) > (200*100)){
+        logger.log('info','cache access_token' + JSON.stringify(TokenCache))
         return {
-            errcode: 500,
-            errmsg: 'get access token request bad',
-            error: err
+          'access_token':TokenCache.access_token,
+          errcode: 0
         }
-    });
+      } else {
+        return sendTokenRequest();
+      }
+    }
+    return sendTokenRequest();
 }
 
 module.exports = getAccessToken;
