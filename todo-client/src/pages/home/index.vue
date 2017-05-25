@@ -29,22 +29,22 @@
     }
   }
 </script>
-<style>
+<style scoped>
   .wrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 750px;
-    height: 1100px;
     background-color: #f8f8f8;
   }
   .title {
     font-size: 60px;
+    width: 750px;
     color: #505050;
     text-align: center;
   }
   .subtitle {
-    display: block;
+    width: 750px;
     font-size: 30px;
     color: #AAAAAA;
     text-align: center;

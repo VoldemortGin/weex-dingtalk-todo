@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  import { setRight,toast } from '../../lib/util.js';
+  import { setRight,toast, getUid } from '../../lib/util.js';
   import { getItem, setItem } from '../../lib/storage.js';
   export default {
     name: 'add',
@@ -58,7 +58,8 @@
           const meta = {
             date: new Date().getTime(),
             text: this.taskText,
-            check: 0
+            check: 0,
+            id: getUid()
           }
           getItem(this.userId,function(e,res){
             let cells;
@@ -79,7 +80,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .app-todo-add{
     width: 750px;
     flex-direction: column;

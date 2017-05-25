@@ -83,7 +83,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .app-wrapper{
     width: 750px;
     background-color: #f8f8f8;

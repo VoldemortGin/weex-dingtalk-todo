@@ -30,7 +30,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .app-users{
     width:750px;
     height: 136px;

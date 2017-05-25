@@ -29,7 +29,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
   .wrapper {
     flex-direction: column;
     justify-content: center;

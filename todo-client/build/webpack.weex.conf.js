@@ -50,8 +50,7 @@ plugins.push(
 
 var config = {
   entry: {
-    'weex-bundle': './src/platforms/weex/weex.entry.js?entry=true',
-    'weex-dingtalk': './src/platforms/weex/weex.dingtalk.js?entry=true'
+    'weex-bundle': './src/platforms/weex/weex.entry.js?entry=true'
   },
   output: {
     path: path.resolve(__dirname, '../dist'),

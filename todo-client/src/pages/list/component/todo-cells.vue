@@ -5,7 +5,7 @@
       <text class="no-more-text">暂无数据</text>
     </div>
     <list class="app-todo-list" v-else>
-      <cell class="app-todo-item" v-for="(item,index) in todoList">
+      <cell class="app-todo-item" v-for="(item,index) in todoList" :key="item.id">
         <div
           :class="['todo-item', item.check ? 'todo-check' : 'todo-no-check']"
         >
@@ -30,7 +30,7 @@
 
 </template>
 
-<script>
+<script >
   import { toast, confirm } from '../../../lib/util.js'
   import { setItem } from '../../../lib/storage.js';
 
@@ -60,7 +60,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .todo-num{
     color: red;
   }

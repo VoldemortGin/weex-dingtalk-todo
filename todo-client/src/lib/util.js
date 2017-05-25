@@ -4,6 +4,7 @@ import journey from 'weex-dingtalk-journey';
 const { requireModule, querystring, url, env } = journey;
 const modal = requireModule('modal');
 const stream = requireModule('stream');
+let uid = 1;
 
 export function fetchBundleUrl(){
   return env.bundleUrl;
@@ -102,14 +103,14 @@ export function setLeft(config, cb){
   dingtalk.ready(function(){
     dingtalk.apis.biz.navigation.setLeft(config);
     if (control){
-      dingtalk.on('backbutton',cb);
+      dingtalk.on('goBack',cb);
     }
   });
 }
 
 export function removeLeftEvent(cb){
   dingtalk.ready(function(){
-    dingtalk.off('backbutton',cb);
+    dingtalk.off('goBack',cb);
   });
 }
 
@@ -128,4 +129,9 @@ export function confirm(msg, cb){
       cb(result);
     }
   })
+}
+
+export function getUid(){
+  uid++;
+  return String(uid + 'icepy');
 }
