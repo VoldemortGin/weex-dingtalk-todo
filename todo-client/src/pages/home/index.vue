@@ -5,7 +5,7 @@
   </div>
 </template>
 <script>
-  import { setRight,toast } from '../../lib/util.js';
+  import { setRight,toast, setTitle } from '../../lib/util.js';
 
   export default {
     name: 'home',
@@ -18,6 +18,7 @@
       setRight({
         show: false
       });
+      setTitle('Todo');
     },
     mounted (){
 

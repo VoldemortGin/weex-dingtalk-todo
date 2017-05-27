@@ -1,1 +1,1 @@
-export const APPHOST = 'http://192.168.1.104:3000';
+export const APPHOST = 'http://www.w3crange.com';

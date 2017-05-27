@@ -135,3 +135,11 @@ export function getUid(){
   uid++;
   return String(uid + 'icepy');
 }
+
+export function setTitle(title){
+  dingtalk.ready(function(){
+    dingtalk.apis.biz.navigation.setTitle({
+      title: title
+    })
+  });
+}
